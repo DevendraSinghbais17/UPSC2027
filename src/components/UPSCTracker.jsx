@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ComposedChart } from 'recharts';
-import ForceGraph3D from 'react-force-graph-3d';
+const ForceGraph3D = lazy(() => import('react-force-graph-3d'));
 import { Browser } from '@capacitor/browser';
 
 // ===================== FIREBASE IMPORTS =====================
-import { initializeApp } from "firebase/app";
-import { initializeFirestore, persistentLocalCache, doc, setDoc, getDoc } from "firebase/firestore";
+import { initializeApp, getApps, getApp } from "firebase/app";
+import { initializeFirestore, persistentLocalCache, doc, setDoc, getDoc, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBk8p3paqINYy3rDrUo8mma97INd5rKGR8",
@@ -17,13 +17,15 @@ const firebaseConfig = {
   measurementId: "G-1PV3G3TWQB"
 };
 
-const app = initializeApp(firebaseConfig);
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
 // Initializes DB with Local Offline Caching turned ON
-const db = initializeFirestore(app, {
-  localCache: persistentLocalCache(),
-  experimentalForceLongPolling: true 
-});
+const db = !getApps().length
+  ? initializeFirestore(app, {
+      localCache: persistentLocalCache(),
+      experimentalForceLongPolling: true 
+    })
+  : getFirestore(app);
 const docRef = doc(db, 'tracker_data', 'my_upsc_data');
 
 // ===================== DATA CONSTANTS =====================
@@ -639,19 +641,21 @@ const UPSCTrackerUltraPro = () => {
                 </h4>
                 
                 <div className="h-[250px] w-full rounded-xl overflow-hidden bg-black/50 border border-white/5 cursor-move">
-                  <ForceGraph3D
-                    graphData={floatingGraphData}
-                    backgroundColor="#00000000"
-                    nodeLabel="name"
-                    nodeRelSize={6}
-                    linkWidth={1}
-                    linkOpacity={0.1}
-                    linkColor={() => '#ffffff'}
-                    d3VelocityDecay={0.02} 
-                    d3AlphaDecay={0.01}
-                    width={typeof window !== 'undefined' && window.innerWidth > 768 ? 700 : (typeof window !== 'undefined' ? window.innerWidth - 60 : 300)}
-                    height={250}
-                  />
+                  <Suspense fallback={<div className="flex justify-center items-center h-full text-amber-500/70 text-xs font-bold uppercase tracking-widest animate-pulse">Loading 3D Universe...</div>}>
+                    <ForceGraph3D
+                      graphData={floatingGraphData}
+                      backgroundColor="#00000000"
+                      nodeLabel="name"
+                      nodeRelSize={6}
+                      linkWidth={1}
+                      linkOpacity={0.1}
+                      linkColor={() => '#ffffff'}
+                      d3VelocityDecay={0.02} 
+                      d3AlphaDecay={0.01}
+                      width={typeof window !== 'undefined' && window.innerWidth > 768 ? 700 : (typeof window !== 'undefined' ? window.innerWidth - 60 : 300)}
+                      height={250}
+                    />
+                  </Suspense>
                 </div>
               </div>
             )}
