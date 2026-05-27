@@ -1,0 +1,66 @@
+{
+  "name": "upsc-2027-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Mobile-optimized UPSC 2027 preparation tracking app",
+  "scripts": {
+    "dev": "vite",
+    "build": "node node_modules/vite/bin/vite.js build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@awesome-cordova-plugins/background-mode": "^9.2.0",
+    "@capacitor/android": "^8.3.4",
+    "@capacitor/browser": "^8.0.3",
+    "@capacitor/core": "^8.3.4",
+    "@capacitor/filesystem": "^8.1.2",
+    "@capacitor/ios": "^8.3.4",
+    "@capacitor/local-notifications": "^8.2.0",
+    "cordova-plugin-background-mode": "^0.7.3",
+    "cors": "^2.8.5",
+    "dependencies": "^0.0.1",
+    "express": "^4.19.2",
+    "firebase": "^12.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-force-graph-3d": "^1.29.1",
+    "recharts": "^2.15.4",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.3.4",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.6.3",
+    "vite": "^4.5.14"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "keywords": [
+    "upsc",
+    "ias",
+    "civil-services",
+    "tracker",
+    "react",
+    "capacitor",
+    "mobile-app"
+  ],
+  "license": "MIT"
+}
