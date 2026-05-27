@@ -19,7 +19,6 @@
     "@capacitor/local-notifications": "^8.2.0",
     "cordova-plugin-background-mode": "^0.7.3",
     "cors": "^2.8.6",
-    "dependencies": "^0.0.1",
     "express": "^5.2.1",
     "firebase": "^12.13.0",
     "react": "^19.2.6",
@@ -31,6 +30,8 @@
   "devDependencies": {
     "@capacitor/assets": "^3.0.5",
     "@capacitor/cli": "^8.3.4",
+    "@tailwindcss/postcss": "^4.3.0",
+    "@tailwindcss/vite": "^4.3.0",
     "@types/node": "^25.9.1",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
