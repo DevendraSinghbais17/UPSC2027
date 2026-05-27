@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-literals */
+/* eslint-disable i18next/no-literal-string */
 import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ComposedChart } from 'recharts';
 const ForceGraph3D = lazy(() => import('react-force-graph-3d'));
@@ -350,7 +352,7 @@ const UPSCTrackerUltraPro = () => {
       const dateStr = date.toISOString().split('T')[0];
       const daySessions = sessions.filter(s => new Date(s.date).toISOString().split('T')[0] === dateStr);
       const dayHours = daySessions.reduce((sum, s) => sum + s.durationSeconds, 0) / 3600;
-      const dayName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getDay()];
+      const dayName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].at(date.getDay());
       data.push({ day: dayName, hours: Math.round(dayHours * 10) / 10, sessions: daySessions.length, fullDate: dateStr });
     }
     return data;
@@ -366,7 +368,7 @@ const UPSCTrackerUltraPro = () => {
       date.setDate(date.getDate() - i);
       const dateStr = date.toISOString().split('T')[0];
       const dayProd = productivity.find(p => new Date(p.date).toISOString().split('T')[0] === dateStr);
-      const dayName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getDay()];
+      const dayName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].at(date.getDay());
       data.push({ day: dayName, score: dayProd ? dayProd.score : 0, fullDate: dateStr });
     }
     return data;
@@ -381,12 +383,12 @@ const UPSCTrackerUltraPro = () => {
 
   // ===================== 3D GRAPH DATA =====================
   const subjectTimeData = useMemo(() => {
-    const data = {};
+    const data = new Map();
     sessions.forEach(s => {
-      if (!data[s.subject]) data[s.subject] = 0;
-      data[s.subject] += s.durationSeconds / 3600;
+      const current = data.get(s.subject) || 0;
+      data.set(s.subject, current + (s.durationSeconds / 3600));
     });
-    return Object.entries(data)
+    return Array.from(data.entries())
       .map(([name, hours]) => ({ name: name.length > 12 ? name.substring(0, 12) + '...' : name, hours: Math.round(hours) }))
       .sort((a, b) => b.hours - a.hours)
       .slice(0, 8);
@@ -402,7 +404,7 @@ const UPSCTrackerUltraPro = () => {
         id: subj.name,
         name: `${subj.name} (${subj.hours}h)`,
         val: subj.hours * 2 + 5, 
-        color: colors[index % colors.length]
+        color: colors.at(index % colors.length)
       });
       links.push({ source: 'UPSC', target: subj.name });
     });
@@ -411,27 +413,27 @@ const UPSCTrackerUltraPro = () => {
   }, [subjectTimeData]);
 
   // ===================== SOURCES CONSTANTS =====================
-  const sourcesData = {
-    'Internal Security': ['Kumar Aniket — Challenges to Internal Security', 'Study IQ — 8 hr marathon', 'Sarrthi IAS — GS3 Module'],
-    'Ancient/Medieval History': ['RS Sharma', 'Satish Chandra', 'NCERT 9th-12th', 'Kautilya Academy Notes', 'Samiksha Institute', 'Sainil Nagare Notes'],
-    'Modern History': ['Spectrum (Rajiv Ahir)', 'Bipan Chandra', 'NCERTs', 'Sainil Nagare Notes'],
-    'World History': ['Himanshu Khatri Notes', 'Vijay Ram Notes', 'Ravi Notes', 'Study IQ 10 hr marathon'],
-    'Post-Independence': ['Spectrum', 'Bipan Chandra'],
-    'Geography (World & Indian)': ['Kautilya Academy Notes', 'NCERT 11th-12th', 'Majid Husain (Selected)', 'G.C. Leong', 'Vision IAS Notes'],
-    'Art & Culture': ['Nitin Singhania'],
-    'Env. & Disaster Mgmt': ['Shankar IAS Environment', 'NDMA Guidelines (Summary)', 'NCERT Class 11 Disaster', 'Vision IAS Notes'],
-    'Polity & Constitution': ['M. Laxmikant — Indian Polity', 'Sarrthi IAS Notes', 'DD Basu — Intro to Constitution'],
-    'Governance & Social Justice': ['M. Laxmikant — Governance in India', 'Sarrthi IAS Notes'],
-    'Science & Tech': ['Ravi P Agrahari', 'Kautilya Academy Notes', 'Vision IAS Notes'],
-    'Economy & Agriculture': ['NCERTs', 'Sarrthi IAS Notes', 'Ramesh Singh', 'Vivek Singh Economy'],
-    'Indian Society': ['NCERT Sociology 11th & 12th', 'Vision IAS GS1 Value Addition Material'],
-    'Ethics & Integrity': ['Lexicon for Ethics', '2nd ARC Report', 'Subhra Ranjan / Vision IAS Notes'],
-    'PSIR Paper 1': ['Subhra Ranjan Classes', 'IGNOU Notes', 'Andrew Heywood', 'O.P. Gauba', 'Western & Indian Political Thought'],
-    'PSIR Paper 2': ['Subhra Ranjan Classes', 'Pavneet Singh — IR', 'Andrew Heywood', 'Does the Elephant Dance', 'Pax Indica', 'Rajiv Sikri'],
-    'International Relations': ['(Subsumed largely by PSIR Paper 2)'],
-    'Essay Writing': ['Weekly Practice', 'Anecdote Compilation', 'Philosophical Quotes DB'],
-    'CSAT & Aptitude': ['Previous Year Questions', 'Basic Numeracy Daily Practice']
-  };
+  const sourcesData = new Map([
+    ['Internal Security', ['Kumar Aniket — Challenges to Internal Security', 'Study IQ — 8 hr marathon', 'Sarrthi IAS — GS3 Module']],
+    ['Ancient/Medieval History', ['RS Sharma', 'Satish Chandra', 'NCERT 9th-12th', 'Kautilya Academy Notes', 'Samiksha Institute', 'Sainil Nagare Notes']],
+    ['Modern History', ['Spectrum (Rajiv Ahir)', 'Bipan Chandra', 'NCERTs', 'Sainil Nagare Notes']],
+    ['World History', ['Himanshu Khatri Notes', 'Vijay Ram Notes', 'Ravi Notes', 'Study IQ 10 hr marathon']],
+    ['Post-Independence', ['Spectrum', 'Bipan Chandra']],
+    ['Geography (World & Indian)', ['Kautilya Academy Notes', 'NCERT 11th-12th', 'Majid Husain (Selected)', 'G.C. Leong', 'Vision IAS Notes']],
+    ['Art & Culture', ['Nitin Singhania']],
+    ['Env. & Disaster Mgmt', ['Shankar IAS Environment', 'NDMA Guidelines (Summary)', 'NCERT Class 11 Disaster', 'Vision IAS Notes']],
+    ['Polity & Constitution', ['M. Laxmikant — Indian Polity', 'Sarrthi IAS Notes', 'DD Basu — Intro to Constitution']],
+    ['Governance & Social Justice', ['M. Laxmikant — Governance in India', 'Sarrthi IAS Notes']],
+    ['Science & Tech', ['Ravi P Agrahari', 'Kautilya Academy Notes', 'Vision IAS Notes']],
+    ['Economy & Agriculture', ['NCERTs', 'Sarrthi IAS Notes', 'Ramesh Singh', 'Vivek Singh Economy']],
+    ['Indian Society', ['NCERT Sociology 11th & 12th', 'Vision IAS GS1 Value Addition Material']],
+    ['Ethics & Integrity', ['Lexicon for Ethics', '2nd ARC Report', 'Subhra Ranjan / Vision IAS Notes']],
+    ['PSIR Paper 1', ['Subhra Ranjan Classes', 'IGNOU Notes', 'Andrew Heywood', 'O.P. Gauba', 'Western & Indian Political Thought']],
+    ['PSIR Paper 2', ['Subhra Ranjan Classes', 'Pavneet Singh — IR', 'Andrew Heywood', 'Does the Elephant Dance', 'Pax Indica', 'Rajiv Sikri']],
+    ['International Relations', ['(Subsumed largely by PSIR Paper 2)']],
+    ['Essay Writing', ['Weekly Practice', 'Anecdote Compilation', 'Philosophical Quotes DB']],
+    ['CSAT & Aptitude', ['Previous Year Questions', 'Basic Numeracy Daily Practice']]
+  ]);
 
   return (
     <div className="bg-[#0a0a0a] text-gray-100 min-h-screen pb-28 font-sans selection:bg-amber-500/30 selection:text-amber-200">
@@ -948,7 +950,7 @@ const UPSCTrackerUltraPro = () => {
                   <div className="mt-6 pt-6 border-t border-white/10">
                     <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-3">Recommended Sources:</p>
                     <ul className="text-[11px] text-gray-400 space-y-2 mb-6">
-                       {(sourcesData[subjects.find(s => s.id === selectedSubjectId)?.name] || ['Refer to Core NCERTs']).map((source, idx) => (
+                       {(sourcesData.get(subjects.find(s => s.id === selectedSubjectId)?.name) || ['Refer to Core NCERTs']).map((source, idx) => (
                          <li key={idx} className="flex gap-2.5 items-start"><span className="text-gray-600 mt-0.5">▹</span><span className="leading-relaxed">{source}</span></li>
                        ))}
                     </ul>
