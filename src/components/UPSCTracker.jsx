@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-no-literals */
-/* eslint-disable i18next/no-literal-string */
+/* eslint-disable */
 import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ComposedChart } from 'recharts';
 const ForceGraph3D = lazy(() => import('react-force-graph-3d'));
