@@ -441,7 +441,7 @@ const UPSCTrackerUltraPro = () => {
       <div className="sticky top-0 z-50 bg-gray-950/80 border-b border-white/5 px-4 py-4 shadow-2xl backdrop-blur-md">
         <div className="max-w-3xl mx-auto">
           <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex justify-between items-center mb-4 transition-all hover:bg-white/10">
-            <span className="text-[10px] font-bold text-gray-400 tracking-widest uppercase">Prelims '27 (May 24)</span>
+            <span className="text-[10px] font-bold text-gray-400 tracking-widest uppercase">{`Prelims '27 (May 24)`}</span>
             <div className="flex gap-2 font-mono text-xs text-amber-400 font-bold">
               <span>{countdown.d}d</span>
               <span>{String(countdown.h).padStart(2, '0')}h</span>
@@ -453,7 +453,7 @@ const UPSCTrackerUltraPro = () => {
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-2xl md:text-3xl font-black font-mono tracking-tight text-white flex items-center">
               ⚡ UPSC HQ
-              {isSyncing && <span className="text-[10px] text-amber-500 font-sans font-bold uppercase tracking-widest ml-3 animate-pulse">Syncing...</span>}
+              {isSyncing && <span className="text-[10px] text-amber-500 font-sans font-bold uppercase tracking-widest ml-3 animate-pulse">{`Syncing...`}</span>}
             </h1>
             <div className="text-right">
               <div className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-200">{progress}%</div>
@@ -463,29 +463,29 @@ const UPSCTrackerUltraPro = () => {
           <div className="grid grid-cols-5 gap-2 mb-4">
             <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-2 text-center shadow-inner">
               <div className="text-lg font-black text-red-400">🔥{streak}</div>
-              <div className="text-[9px] uppercase tracking-widest text-red-400/70 font-semibold mt-1">streak</div>
+              <div className="text-[9px] uppercase tracking-widest text-red-400/70 font-semibold mt-1">{`streak`}</div>
             </div>
             <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-2 text-center shadow-inner">
               <div className="text-lg font-black text-blue-400">{todayStats.hours}h</div>
-              <div className="text-[9px] uppercase tracking-widest text-blue-400/70 font-semibold mt-1">today</div>
+              <div className="text-[9px] uppercase tracking-widest text-blue-400/70 font-semibold mt-1">{`today`}</div>
             </div>
             <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-2 text-center shadow-inner">
               <div className="text-lg font-black text-emerald-400">{sessions.length}</div>
-              <div className="text-[9px] uppercase tracking-widest text-emerald-400/70 font-semibold mt-1">total</div>
+              <div className="text-[9px] uppercase tracking-widest text-emerald-400/70 font-semibold mt-1">{`total`}</div>
             </div>
             <div className="bg-purple-500/10 border border-purple-500/20 rounded-xl p-2 text-center shadow-inner">
               <div className="text-lg font-black text-purple-400">{todayStats.productivity}%</div>
-              <div className="text-[9px] uppercase tracking-widest text-purple-400/70 font-semibold mt-1">focus</div>
+              <div className="text-[9px] uppercase tracking-widest text-purple-400/70 font-semibold mt-1">{`focus`}</div>
             </div>
             <div className="bg-teal-500/10 border border-teal-500/20 rounded-xl p-2 text-center shadow-inner">
               <div className="text-lg font-black text-teal-400">{todayStats.goals}</div>
-              <div className="text-[9px] uppercase tracking-widest text-teal-400/70 font-semibold mt-1">goals</div>
+              <div className="text-[9px] uppercase tracking-widest text-teal-400/70 font-semibold mt-1">{`goals`}</div>
             </div>
           </div>
 
           <div className="space-y-1.5">
             <div className="flex justify-between text-[10px] uppercase tracking-widest text-gray-500 font-bold">
-               <span>Algorithm Progress</span>
+               <span>{`Algorithm Progress`}</span>
                <span>{completedWeight + MathRoundWorkingWeight}/{totalWeight} Wt</span>
             </div>
             <div className="flex gap-1 h-2 rounded-full overflow-hidden bg-gray-900 border border-white/5">
@@ -500,7 +500,7 @@ const UPSCTrackerUltraPro = () => {
         <div className="fixed top-36 left-0 right-0 z-40 mx-4 bg-red-500/90 backdrop-blur-md border border-red-400 rounded-2xl p-4 shadow-2xl animate-bounce">
           <div className="flex justify-between items-center max-w-3xl mx-auto">
             <span className="text-sm font-bold text-white">⏰ Take a 5-min break! You've studied for 1 hour.</span>
-            <button onClick={() => setShowBreakReminder(false)} className="text-sm bg-black/20 text-white px-4 py-1.5 rounded-lg hover:bg-black/40 font-bold transition">Done</button>
+            <button onClick={() => setShowBreakReminder(false)} className="text-sm bg-black/20 text-white px-4 py-1.5 rounded-lg hover:bg-black/40 font-bold transition">{`Done`}</button>
           </div>
         </div>
       )}
@@ -513,7 +513,7 @@ const UPSCTrackerUltraPro = () => {
           <div className="space-y-6">
             
             <div>
-              <h4 className="text-[10px] font-bold text-gray-500 mb-3 uppercase tracking-widest">Essential Resources</h4>
+              <h4 className="text-[10px] font-bold text-gray-500 mb-3 uppercase tracking-widest">{`Essential Resources`}</h4>
               <button 
                 onClick={openDrishtiIAS}
                 className="w-full text-left group block bg-gradient-to-r from-blue-900/40 to-blue-600/20 border border-blue-500/30 hover:border-blue-400/60 rounded-2xl p-4 transition-all hover:scale-[1.01] shadow-lg"
@@ -522,8 +522,8 @@ const UPSCTrackerUltraPro = () => {
                   <div className="flex items-center gap-4">
                     <div className="bg-blue-500/20 p-3 rounded-xl text-xl border border-blue-400/20">📰</div>
                     <div>
-                      <h4 className="font-bold text-sm text-blue-100 group-hover:text-white transition">Drishti IAS Current Affairs</h4>
-                      <p className="text-[11px] text-blue-300/70 mt-1">Daily News Analysis & Editorials</p>
+                      <h4 className="font-bold text-sm text-blue-100 group-hover:text-white transition">{`Drishti IAS Current Affairs`}</h4>
+                      <p className="text-[11px] text-blue-300/70 mt-1">{`Daily News Analysis & Editorials`}</p>
                     </div>
                   </div>
                   <span className="text-blue-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform font-bold">↗</span>
@@ -533,19 +533,19 @@ const UPSCTrackerUltraPro = () => {
 
             <div className={`rounded-2xl p-5 border shadow-sm backdrop-blur-md transition-all ${paceBg}`}>
               <div className="flex justify-between items-center mb-2">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Algorithmic Pace Matrix</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">{`Algorithmic Pace Matrix`}</span>
                 <span className={`font-mono text-xs font-black ${paceColor}`}>{paceStatus}</span>
               </div>
               <div className="flex justify-between mt-3 pt-3 border-t border-white/5">
-                 <p className="text-[11px] text-gray-400">Expected: <span className="text-gray-100 font-bold ml-1">{expectedProgress.toFixed(1)}%</span></p>
-                 <p className="text-[11px] text-gray-400">Actual: <span className="text-gray-100 font-bold ml-1">{progress}%</span></p>
-                 <p className="text-[11px] text-gray-400">Day: <span className="text-gray-100 font-bold ml-1">{daysElapsed}/{STRATEGY_DAYS}</span></p>
+                 <p className="text-[11px] text-gray-400">{`Expected: `}<span className="text-gray-100 font-bold ml-1">{expectedProgress.toFixed(1)}%</span></p>
+                 <p className="text-[11px] text-gray-400">{`Actual: `}<span className="text-gray-100 font-bold ml-1">{progress}%</span></p>
+                 <p className="text-[11px] text-gray-400">{`Day: `}<span className="text-gray-100 font-bold ml-1">{daysElapsed}/{STRATEGY_DAYS}</span></p>
               </div>
             </div>
 
             {weakAreas.length > 0 && (
               <div className="bg-red-500/5 border border-red-500/10 rounded-2xl p-5 backdrop-blur-md">
-                <h4 className="text-[10px] font-bold text-red-400/80 mb-4 uppercase tracking-widest">Critical Focus Vectors</h4>
+                <h4 className="text-[10px] font-bold text-red-400/80 mb-4 uppercase tracking-widest">{`Critical Focus Vectors`}</h4>
                 <div className="space-y-2">
                   {weakAreas.map((s, index) => (
                     <div key={s.id} className="flex justify-between items-center text-sm bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition">
@@ -561,7 +561,7 @@ const UPSCTrackerUltraPro = () => {
             )}
 
             <div className="space-y-3">
-              <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Next Phases</h4>
+              <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{`Next Phases`}</h4>
               <div className="grid grid-cols-2 gap-3">
                 {monthlyProgress.slice(0, 4).map((m, idx) => (
                   <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-md hover:border-white/20 transition">
@@ -580,7 +580,7 @@ const UPSCTrackerUltraPro = () => {
             {/* WEEKLY CHARTS WITH NAVIGATION */}
             <div className="space-y-6 bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-md">
               <div className="flex justify-between items-center mb-2 border-b border-white/10 pb-4">
-                <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Weekly Analytics</h4>
+                <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{`Weekly Analytics`}</h4>
                 <div className="flex items-center gap-3">
                   <button 
                     onClick={() => setWeekOffset(weekOffset + 1)} 
@@ -602,7 +602,7 @@ const UPSCTrackerUltraPro = () => {
               </div>
 
               <div>
-                <h4 className="text-[10px] font-bold text-gray-400 mb-4 uppercase tracking-widest">Cognitive Efficiency Trend</h4>
+                <h4 className="text-[10px] font-bold text-gray-400 mb-4 uppercase tracking-widest">{`Cognitive Efficiency Trend`}</h4>
                 <ResponsiveContainer width="100%" height={160}>
                   <ComposedChart data={prodData} margin={{ top: 5, right: 5, bottom: 5, left: -20 }}>
                     <CartesianGrid strokeDasharray="2 2" stroke="#333" vertical={false} />
@@ -616,7 +616,7 @@ const UPSCTrackerUltraPro = () => {
               </div>
 
               <div>
-                <h4 className="text-[10px] font-bold text-gray-400 mb-4 uppercase tracking-widest">Weekly Study Hours</h4>
+                <h4 className="text-[10px] font-bold text-gray-400 mb-4 uppercase tracking-widest">{`Weekly Study Hours`}</h4>
                 {weeklyData.some(d => d.hours > 0) ? (
                   <ResponsiveContainer width="100%" height={160}>
                     <BarChart data={weeklyData} margin={{ top: 5, right: 5, bottom: 5, left: -20 }}>
@@ -628,7 +628,7 @@ const UPSCTrackerUltraPro = () => {
                     </BarChart>
                   </ResponsiveContainer>
                 ) : (
-                  <p className="text-xs text-gray-600 text-center py-6 border border-dashed border-gray-800 rounded-xl">No sessions recorded for this week</p>
+                  <p className="text-xs text-gray-600 text-center py-6 border border-dashed border-gray-800 rounded-xl">{`No sessions recorded for this week`}</p>
                 )}
               </div>
             </div>
@@ -637,12 +637,12 @@ const UPSCTrackerUltraPro = () => {
             {subjectTimeData.length > 0 && (
               <div className="bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-md overflow-hidden">
                 <h4 className="text-[10px] font-bold text-gray-500 mb-4 uppercase tracking-widest flex justify-between items-center">
-                  <span>Time Allocation Universe (3D)</span>
-                  <span className="text-[8px] text-amber-400 bg-amber-500/10 px-2 py-1 rounded">Drag to Spin • Scroll to Zoom</span>
+                  <span>{`Time Allocation Universe (3D)`}</span>
+                  <span className="text-[8px] text-amber-400 bg-amber-500/10 px-2 py-1 rounded">{`Drag to Spin • Scroll to Zoom`}</span>
                 </h4>
                 
                 <div className="h-[250px] w-full rounded-xl overflow-hidden bg-black/50 border border-white/5 cursor-move">
-                  <Suspense fallback={<div className="flex justify-center items-center h-full text-amber-500/70 text-xs font-bold uppercase tracking-widest animate-pulse">Loading 3D Universe...</div>}>
+                  <Suspense fallback={<div className="flex justify-center items-center h-full text-amber-500/70 text-xs font-bold uppercase tracking-widest animate-pulse">{`Loading 3D Universe...`}</div>}>
                     <ForceGraph3D
                       graphData={floatingGraphData}
                       backgroundColor="#00000000"
@@ -680,7 +680,7 @@ const UPSCTrackerUltraPro = () => {
                   className="flex-1 bg-black/40 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-teal-500/50 focus:bg-black/60 transition"
                   onKeyPress={(e) => e.key === 'Enter' && addGoal()}
                 />
-                <button onClick={addGoal} className="bg-teal-600/20 text-teal-400 border border-teal-500/30 hover:bg-teal-600 hover:text-white px-5 py-2.5 rounded-xl text-sm font-bold transition">Add</button>
+                <button onClick={addGoal} className="bg-teal-600/20 text-teal-400 border border-teal-500/30 hover:bg-teal-600 hover:text-white px-5 py-2.5 rounded-xl text-sm font-bold transition">{`Add`}</button>
               </div>
             </div>
           </div>
@@ -700,7 +700,7 @@ const UPSCTrackerUltraPro = () => {
                   onChange={(e) => setSelectedSubject(e.target.value)}
                   className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-amber-500/50 font-semibold appearance-none hover:bg-black/60 transition"
                 >
-                  <option value="">Tag a Subject...</option>
+                  <option value="">{`Tag a Subject...`}</option>
                   {subjects.map(s => (<option key={s.id} value={s.name}>{s.name}</option>))}
                 </select>
 
@@ -776,7 +776,7 @@ const UPSCTrackerUltraPro = () => {
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-md">
-              <h4 className="text-[10px] font-bold text-gray-500 mb-4 uppercase tracking-widest">Recent Sessions History</h4>
+              <h4 className="text-[10px] font-bold text-gray-500 mb-4 uppercase tracking-widest">{`Recent Sessions History`}</h4>
               <div className="space-y-2 max-h-72 overflow-y-auto custom-scrollbar pr-2">
                 {sessions.slice(0, 20).map(s => (
                   <div key={s.id} className="flex justify-between items-center text-sm bg-black/40 border border-white/5 p-3.5 rounded-xl hover:bg-black/60 transition group">
@@ -797,7 +797,7 @@ const UPSCTrackerUltraPro = () => {
                     </div>
                   </div>
                 ))}
-                {sessions.length === 0 && <p className="text-xs text-gray-600 text-center py-6">No sessions recorded yet.</p>}
+                {sessions.length === 0 && <p className="text-xs text-gray-600 text-center py-6">{`No sessions recorded yet.`}</p>}
               </div>
             </div>
           </div>
@@ -808,7 +808,7 @@ const UPSCTrackerUltraPro = () => {
           <div className="space-y-4">
             <div className="bg-blue-500/5 border border-blue-500/10 rounded-2xl p-5 backdrop-blur-md mb-6">
               <h3 className="text-sm font-bold text-blue-400">📋 8-Month Roadmap to Success</h3>
-              <p className="text-xs text-gray-500 mt-1">Track your macro progress through the required phases.</p>
+              <p className="text-xs text-gray-500 mt-1">{`Track your macro progress through the required phases.`}</p>
             </div>
 
             {monthlyProgress.map((month, idx) => (
@@ -829,21 +829,21 @@ const UPSCTrackerUltraPro = () => {
 
                 <div className="grid grid-cols-3 gap-2 text-xs mb-4">
                   <div className="bg-black/40 rounded-xl px-2 py-2 text-center border border-white/5">
-                    <span className="text-gray-500 block text-[9px] uppercase font-bold tracking-wider mb-0.5">Days</span>
+                    <span className="text-gray-500 block text-[9px] uppercase font-bold tracking-wider mb-0.5">{`Days`}</span>
                     <span className="text-gray-200 font-bold">{month.days}</span>
                   </div>
                   <div className="bg-black/40 rounded-xl px-2 py-2 text-center border border-white/5">
-                    <span className="text-gray-500 block text-[9px] uppercase font-bold tracking-wider mb-0.5">Topics</span>
+                    <span className="text-gray-500 block text-[9px] uppercase font-bold tracking-wider mb-0.5">{`Topics`}</span>
                     <span className="text-gray-200 font-bold">{month.topics.length}</span>
                   </div>
                   <div className="bg-black/40 rounded-xl px-2 py-2 text-center border border-white/5">
-                    <span className="text-gray-500 block text-[9px] uppercase font-bold tracking-wider mb-0.5">Essays</span>
+                    <span className="text-gray-500 block text-[9px] uppercase font-bold tracking-wider mb-0.5">{`Essays`}</span>
                     <span className="text-amber-400 font-bold">{month.essays}</span>
                   </div>
                 </div>
 
                 <div className="border-t border-white/10 pt-4">
-                  <p className="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-2">Subject Coverage:</p>
+                  <p className="text-[9px] uppercase tracking-widest text-gray-500 font-bold mb-2">{`Subject Coverage:`}</p>
                   <div className="space-y-1.5 flex flex-wrap gap-2">
                     {month.topics.map((topic, i) => (
                       <span key={i} className="text-[10px] text-gray-300 bg-white/5 px-2.5 py-1 rounded-md border border-white/5">
@@ -888,13 +888,13 @@ const UPSCTrackerUltraPro = () => {
           <div className="space-y-4">
             <div className="sticky top-[140px] md:top-32 z-30 bg-[#0a0a0a]/90 py-4 border-b border-white/5 backdrop-blur-md">
               <div className="flex justify-between items-center mb-2">
-                <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Weighted Subject Matrix</h3>
+                <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{`Weighted Subject Matrix`}</h3>
                 <div className="flex gap-2">
-                  <button onClick={() => setSubjects(subjects.map(s => ({ ...s, status: 'untouched' })))} className="text-[9px] uppercase font-bold bg-white/5 hover:bg-white/10 text-gray-300 px-3 py-2 rounded-lg border border-white/10 transition">Reset</button>
-                  <button onClick={() => setSubjects(subjects.map(s => ({ ...s, status: 'completed' })))} className="text-[9px] uppercase font-bold bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 px-3 py-2 rounded-lg border border-emerald-500/20 transition">Complete All</button>
+                  <button onClick={() => setSubjects(subjects.map(s => ({ ...s, status: 'untouched' })))} className="text-[9px] uppercase font-bold bg-white/5 hover:bg-white/10 text-gray-300 px-3 py-2 rounded-lg border border-white/10 transition">{`Reset`}</button>
+                  <button onClick={() => setSubjects(subjects.map(s => ({ ...s, status: 'completed' })))} className="text-[9px] uppercase font-bold bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 px-3 py-2 rounded-lg border border-emerald-500/20 transition">{`Complete All`}</button>
                 </div>
               </div>
-              <p className="text-[10px] text-gray-600">Ranked by UPSC Mains weightage. Tap cards to update status.</p>
+              <p className="text-[10px] text-gray-600">{`Ranked by UPSC Mains weightage. Tap cards to update status.`}</p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 pt-2">
@@ -928,7 +928,7 @@ const UPSCTrackerUltraPro = () => {
                   <h4 className="font-black text-center text-lg text-white mb-1">
                     {subjects.find(s => s.id === selectedSubjectId)?.name}
                   </h4>
-                  <p className="text-[10px] uppercase font-bold text-gray-500 text-center mb-8 tracking-widest">Update Status</p>
+                  <p className="text-[10px] uppercase font-bold text-gray-500 text-center mb-8 tracking-widest">{`Update Status`}</p>
                   
                   <div className="flex flex-col gap-3 mb-6">
                     {['untouched', 'working', 'completed'].map(status => (
@@ -947,7 +947,7 @@ const UPSCTrackerUltraPro = () => {
                   </div>
                   
                   <div className="mt-6 pt-6 border-t border-white/10">
-                    <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-3">Recommended Sources:</p>
+                    <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-3">{`Recommended Sources:`}</p>
                     <ul className="text-[11px] text-gray-400 space-y-2 mb-6">
                        {(sourcesData.get(subjects.find(s => s.id === selectedSubjectId)?.name) || ['Refer to Core NCERTs']).map((source, idx) => (
                          <li key={idx} className="flex gap-2.5 items-start"><span className="text-gray-600 mt-0.5">▹</span><span className="leading-relaxed">{source}</span></li>
@@ -955,7 +955,7 @@ const UPSCTrackerUltraPro = () => {
                     </ul>
                   </div>
 
-                  <button onClick={() => setSelectedSubjectId(null)} className="w-full py-3.5 bg-transparent text-gray-500 hover:text-white rounded-xl text-xs font-bold uppercase tracking-widest transition border border-white/10 hover:border-white/30 hover:bg-white/5">Close Panel</button>
+                  <button onClick={() => setSelectedSubjectId(null)} className="w-full py-3.5 bg-transparent text-gray-500 hover:text-white rounded-xl text-xs font-bold uppercase tracking-widest transition border border-white/10 hover:border-white/30 hover:bg-white/5">{`Close Panel`}</button>
                 </div>
               </div>
             )}
@@ -968,7 +968,7 @@ const UPSCTrackerUltraPro = () => {
             
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
               <div className="flex justify-between items-center mb-5">
-                 <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Cognitive Efficiency</h4>
+                 <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{`Cognitive Efficiency`}</h4>
                  <div className="text-sm font-black text-amber-400">{prodSlider}%</div>
               </div>
               
@@ -977,11 +977,11 @@ const UPSCTrackerUltraPro = () => {
                 onChange={(e) => setProdSlider(Number(e.target.value))}
                 className="w-full h-1.5 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-amber-500 mb-6"
               />
-              <button onClick={logProductivity} className="w-full bg-amber-500/10 text-amber-400 border border-amber-500/30 hover:bg-amber-500 hover:text-black py-3.5 rounded-xl font-bold text-[10px] uppercase tracking-widest transition shadow-sm">Log Today's Score</button>
+              <button onClick={logProductivity} className="w-full bg-amber-500/10 text-amber-400 border border-amber-500/30 hover:bg-amber-500 hover:text-black py-3.5 rounded-xl font-bold text-[10px] uppercase tracking-widest transition shadow-sm">{`Log Today's Score`}</button>
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
-              <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-4">Daily Insights & Reflection</label>
+              <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-4">{`Daily Insights & Reflection`}</label>
               <textarea
                 value={journalInput}
                 onChange={(e) => setJournalInput(e.target.value)}
@@ -998,12 +998,12 @@ const UPSCTrackerUltraPro = () => {
                   <div key={entry.id} className="bg-black/20 border border-white/5 rounded-2xl p-5 hover:bg-white/5 transition">
                     <div className="flex justify-between items-start mb-3">
                       <span className="text-[10px] font-mono font-bold text-gray-500">{new Date(entry.date).toLocaleString()}</span>
-                      <button onClick={() => setJournal(journal.filter(e => e.id !== entry.id))} className="text-[9px] font-bold uppercase tracking-widest text-red-500/70 hover:text-red-400 px-2 py-1 bg-red-500/10 rounded-md border border-red-500/10 transition">Delete</button>
+                      <button onClick={() => setJournal(journal.filter(e => e.id !== entry.id))} className="text-[9px] font-bold uppercase tracking-widest text-red-500/70 hover:text-red-400 px-2 py-1 bg-red-500/10 rounded-md border border-red-500/10 transition">{`Delete`}</button>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed whitespace-pre-wrap">{entry.text}</p>
                   </div>
                 ))}
-                {journal.length === 0 && <p className="text-xs text-center text-gray-600 py-8">No journal entries yet. Start writing!</p>}
+                {journal.length === 0 && <p className="text-xs text-center text-gray-600 py-8">{`No journal entries yet. Start writing!`}</p>}
               </div>
             </div>
 
